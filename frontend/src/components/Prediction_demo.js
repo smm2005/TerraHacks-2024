@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import "./Prediction.css";
 import { Chart } from "react-google-charts";
-import MapChart from "./MapChart";
+
 function Prediction () {
     const [prediction, setPrediction] = useState(false);
     const [rainfall, setRainfall] = useState([]);
@@ -59,31 +59,35 @@ function Prediction () {
     return (
         <div>
 
-            <div className="main-container">
-                <div className="picture-container" >
-                    <MapChart />
-                </div>
-
-                <div className="model-predict-container">
-                    yo
-                    <Chart
-                        chartType="LineChart"
-                        width="100%"
-                        height="100%"
-                        data={rainfall}
-                        options={option_rainfall}
-                        />
-                    <Chart
-                        chartType="LineChart"
-                        title="Predict Temperature"
-                        width="100%"
-                        height="100%"
-                        data={temperature}
-                        options={option_temperature}
-                        />
-                </div>
-            </div>
             
+            
+            <button onClick={onClickEvent}>Click to predict Japan</button>
+            {
+                prediction && 
+                <div className="main-container">
+                    <div className="picture-container" >
+                        <img src={"./images/japan.png"} />
+                    </div>
+
+                    <div className="model-predict-container">
+                        <Chart
+                            chartType="LineChart"
+                            width="100%"
+                            height="100%"
+                            data={rainfall}
+                            options={option_rainfall}
+                            />
+                        <Chart
+                            chartType="LineChart"
+                            title="Predict Temperature"
+                            width="100%"
+                            height="100%"
+                            data={temperature}
+                            options={option_temperature}
+                            />
+                    </div>
+                </div>
+            }
         </div>
     )
 }
