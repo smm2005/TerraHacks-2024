@@ -106,6 +106,7 @@ code {
   border: 10px solid aliceblue;
   border-radius: 20px;
   animation: anim 0.5s linear;
+  animation-fill-mode: forwards;
 }
 
 @keyframes anim{
@@ -144,6 +145,7 @@ code {
   border: 10px solid aliceblue;
   border-radius: 20px;
   animation: anim 0.5s linear;
+  animation-fill-mode: forwards;
 }
 
 #section2{
@@ -218,4 +220,5 @@ code {
   border: 2px solid aliceblue;
   border-radius: 20px;
   color: aliceblue;
+  overflow: hidden;
 }
