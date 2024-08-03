@@ -7,4 +7,8 @@ router.post('/region',
   regions.predictFertility
 )
 
+router.get("/country-data", 
+  regions.getCountryData
+)
+
 module.exports = router;

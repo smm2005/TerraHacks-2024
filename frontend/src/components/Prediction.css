@@ -1,0 +1,19 @@
+.main-container {
+    display: flex;
+    margin: 30px;
+}
+
+.picture-container {
+    width: 49%;
+    
+}
+
+.picture-container img {
+    width: 100%;
+}
+
+.model-predict-container {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
