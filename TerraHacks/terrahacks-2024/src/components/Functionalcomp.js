@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 
 function Functionalcomp(props){
 
-    const [count, setCount] = useState(0);
+    const [city, setCity] = useState("");
+
+    const load = function(){
+        fetch("misc/country-list.csv")
+        .then(response => response.text)
+        .then(responseText =>{
+            setCity( responseText )
+        })
+    }
 
     return (
-    <div>
-        <h1>{props.name}</h1>
-        <h2>{count}</h2>
-        <button id="btn" onClick={() => setCount(count + 1)}>Enter</button>
-    </div>
+    <h1 id="title">{props.name}</h1>
     )
 }
 
