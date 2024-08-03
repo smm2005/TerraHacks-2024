@@ -14,40 +14,56 @@ code {
 
 .Header{
   background-color: #253722;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.Header #title{
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-elements #title{
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: 450;
   font-style: normal;
+  display: flex;
   background-color: 	#253722;
   color: aliceblue;
   padding: 0 auto;
   border: 30px solid #253722;
   margin: auto;
+  text-align: left;
 }
 
 .nav-elements ul{
   display: flex;
-  justify-content: space-between;
   list-style: none;
+  justify-content: space-between;
 }
 
 .nav-elements ul li{
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 60px;
+  margin-top: 35px;
+  margin-left: 160px;
+  text-align: center;
 }
 
 .nav-elements ul a{
   text-decoration: none;
   font-size: 20px;
   color: aliceblue;
+  display: flex;
 }
 
 .nav-elements ul a:hover{
   text-decoration:none;
   font-size: 20px;
-  color: #253722;
-  
+  animation-name: anim;
+  animation-duration: 3s;
+  border-bottom: 2px solid white;
+  transform: scaleX(1);
 }

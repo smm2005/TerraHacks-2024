@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        <Functionalcomp name="Fertility Prediction Model"/>
         <BrowserRouter>
           <Navbar />
         </BrowserRouter>
