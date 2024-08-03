@@ -62,7 +62,7 @@ function functionString (model) {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
   console.log(`the result is ${coefficients}`);
-  console.log(`the result is ${functionString()}`);
+  console.log(`the result is ${functionString(mlr)}`);
   console.log(`the result is ${mlr.predict([4, 5])}`);
 });
 

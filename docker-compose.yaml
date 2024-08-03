@@ -25,6 +25,8 @@ services:
     - frontend-data:/frontend-app
     ports:
     - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
   mysql-container: 
     image: mysql:latest
