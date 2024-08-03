@@ -15,7 +15,7 @@ services:
     - DB_HOST=mysql-container 
     - DB_USER=${MYSQLDB_USER}
     - DB_PASSWORD=${MYSQLDB_PASSWORD}
-    - DB_NAME=${MYSQLDB_NAME}
+    - DB_NAME=${MYSQLDB_DATABASES}
   
   frontend: 
     depends_on: 
@@ -30,7 +30,7 @@ services:
     image: mysql:latest
     restart: unless-stopped
     environment:
-    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    - MYSQL_ROOT_PASSWORD=${MYSQLDB_ROOT_PASSWORD}
     - MYSQL_DATABASE=${MYSQLDB_NAME}
     ports: 
     - "3306:3306"

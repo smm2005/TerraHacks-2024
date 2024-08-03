@@ -1,5 +1,5 @@
 
-CREATE DATABASE IF NOT EXISTS fetility;
+CREATE DATABASE IF NOT EXISTS fertility;
 
 USE fertility;
 
@@ -17,15 +17,15 @@ CREATE TABLE IF NOT EXISTS example(
     PRIMARY KEY(id)
 );
 
-INSERT INTO example ( country, image, temperature, temperature_rate, rainfall, rainfall_rate, soil_type) VALUES 
+INSERT INTO example ( country, image, temperature, temperature_rate, temperature_intercept, rainfall, rainfall_rate, rainfall_intercept, soil_type) VALUES 
     ("Japan", "japan.png", 20, 1.234, 1, 40, 3.143, 1, 2);
 
 
-CREATE TABLE temp(
-   Country     VARCHAR(29) NOT NULL PRIMARY KEY
-  ,Temperature NUMERIC(6,2) NOT NULL
+CREATE TABLE IF NOT EXISTS temp(
+   Country     VARCHAR(29) NOT NULL PRIMARY KEY,
+  Temperature NUMERIC(6,2) NOT NULL
 );
-INSERT INTO temp(Country,Temperature) VALUES ('Burkina Faso',29.28);
+INSERT INTO temp (Country,Temperature) VALUES ('Burkina Faso',29.28);
 INSERT INTO temp(Country,Temperature) VALUES ('Mali',29.19);
 INSERT INTO temp(Country,Temperature) VALUES ('Qatar',29.11);
 INSERT INTO temp(Country,Temperature) VALUES ('Senegal',29);
@@ -232,8 +232,8 @@ INSERT INTO temp(Country,Temperature) VALUES ('Canada',-4.22);
 INSERT INTO temp(Country,Temperature) VALUES ('Greenland',-18.62);
 
 
-CREATE TABLE CRI_table(
-  ,Country     VARCHAR(36) NOT NULL PRIMARY KEY
+CREATE TABLE IF NOT EXISTS CRI_table(
+  Country     VARCHAR(36) NOT NULL PRIMARY KEY
   ,Normalize   VARCHAR(11) NOT NULL
 );
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Albania','0.857740586');
@@ -422,4 +422,4 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Vanuatu','0.187190124');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Venezuela','0.789234038');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Vietnam','0');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Zambia','1');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Zimbabwe','#DIV/0!');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Zimbabwe','0');
