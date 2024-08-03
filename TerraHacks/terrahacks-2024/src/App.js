@@ -6,8 +6,7 @@ import Functionalcomp from './components/Functionalcomp';
 function App() {
   return (
     <div className="App">
-      <Classcomp />
-      <Functionalcomp />
+      <Functionalcomp name="Fertility Prediction Model" />
     </div>
   );
 }
