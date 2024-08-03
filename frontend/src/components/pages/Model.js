@@ -1,6 +1,8 @@
+import MapChart from "../MapChart";
+
 function Model () {
     return (
-        null
+        <MapChart />
     )
 }
 

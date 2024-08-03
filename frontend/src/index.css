@@ -47,8 +47,8 @@ code {
 }
 
 .nav-elements ul li{
-  margin-right: 60px;
-  margin-top: 35px;
+  margin-right: 0.0001%;
+  margin-top: 3.5%;
   margin-left: 160px;
   text-align: center;
 }
@@ -70,8 +70,8 @@ code {
   position: absolute;
   text-align: left;
   color: white;
-  top: 200px;
-  left: 50px;
+  top: 30%;
+  left: 3.5%;
   font-size: 60px;
 }
 
@@ -80,20 +80,28 @@ code {
   text-align: left;
   color: aliceblue;
   font-weight: 100;
-  top: 400px;
-  left: 50px;
+  top: 60%;
+  left: 3.5%;
 }
 
 #homepage #desertImage{
   position: absolute;
-  right: 270px;
-  top: 180px;
+  right: 20%;
+  top: 25%;
   border: 10px solid aliceblue;
+  border-radius: 20px;
 }
 
 #homepage #tundraImage{
   position: absolute;
-  right: 100px;
-  top: 380px;
+  right: 7%;
+  top: 57%;
   border: 10px solid aliceblue;
+  border-radius: 20px;
+}
+
+.picture-container{
+  border: 2px solid aliceblue;
+  border-radius: 20px;
+  color: aliceblue;
 }
