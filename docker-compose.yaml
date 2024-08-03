@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  
+  backend:
+    depends_on:
+    - mysql-container
+    build: ./backend
+    restart: unless-stopped
+    ports: 
+    - "9897:9897"
+    volumes: 
+    - backend-data:/backend-app
+    environment: 
+    - DB_HOST=mysql-container 
+    - DB_USER=${MYSQLDB_USER}
+    - DB_PASSWORD=${MYSQLDB_PASSWORD}
+    - DB_NAME=${MYSQLDB_NAME}
+  
+  frontend: 
+    depends_on: 
+    - backend
+    build: ./frontend
+    volumes:
+    - frontend-data:/frontend-app
+    ports:
+    - "3000:3000"
+
+  mysql-container: 
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    - MYSQL_DATABASE=${MYSQLDB_NAME}
+    ports: 
+    - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+
+
+volumes:
+  db:
+  backend-data:
+  frontend-data:
