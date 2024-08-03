@@ -1,13 +1,99 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  background-color: #4B6F44;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.Header{
+  background-color: #253722;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar{
+  background-color: #253722;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-elements #title{
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  display: flex;
+  background-color: 	#253722;
+  color: aliceblue;
+  padding: 0 auto;
+  border: 30px solid #253722;
+  margin: auto;
+  text-align: left;
+}
+
+.nav-elements ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.nav-elements ul li{
+  margin-right: 60px;
+  margin-top: 35px;
+  margin-left: 160px;
+  text-align: center;
+}
+
+.nav-elements ul a{
+  text-decoration: none;
+  font-size: 20px;
+  color: aliceblue;
+  display: flex;
+}
+
+.nav-elements ul a:hover{
+  text-decoration:none;
+  font-size: 20px;
+  border-bottom: 2px solid white;
+}
+
+#homepage #question{
+  position: absolute;
+  text-align: left;
+  color: white;
+  top: 200px;
+  left: 50px;
+  font-size: 60px;
+}
+
+#homepage #answer{
+  position: absolute;
+  text-align: left;
+  color: aliceblue;
+  font-weight: 100;
+  top: 400px;
+  left: 50px;
+}
+
+#homepage #desertImage{
+  position: absolute;
+  right: 270px;
+  top: 180px;
+  border: 10px solid aliceblue;
+}
+
+#homepage #tundraImage{
+  position: absolute;
+  right: 100px;
+  top: 380px;
+  border: 10px solid aliceblue;
 }
