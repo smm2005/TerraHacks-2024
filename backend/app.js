@@ -59,6 +59,32 @@ function functionString (model) {
   }
 }
 
+//function for determining soil type for input/output (to display image and to provide solution)
+function soilType (soilVal) {
+
+  switch (Math.floor(soilVal)) {
+    case 9, 10:
+      soil = "Mollisols"
+    case 8:
+      soil = "Andisols"
+    case 7:
+      soil = "Alfisols"
+    case 6:
+      soil = "Histosols/Vertisols"
+    case 5:
+      soil = "Inceptisols"
+    case 4:
+      soil = "Oxisols/Ultisols"
+    case 3:
+      soil = "Spodosols/Entisols"
+    case 2:
+      soil = "Aridisols"
+    case 1, 0:
+      soil = "Gelisols"
+    
+  }
+}
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
   console.log(`the result is ${coefficients}`);
