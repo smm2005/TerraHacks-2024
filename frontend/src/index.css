@@ -26,6 +26,12 @@ code {
   align-items: center;
 }
 
+#section1{
+  background-color: #4B6F44;
+  width: 100%;
+  height: 600px;
+}
+
 .nav-elements #title{
   font-family: "Lora", serif;
   font-optical-sizing: auto;
@@ -73,6 +79,7 @@ code {
   top: 30%;
   left: 3.5%;
   font-size: 60px;
+  animation: anim2 1s ease-out 1 both;
 }
 
 #homepage #answer{
@@ -82,6 +89,7 @@ code {
   font-weight: 100;
   top: 60%;
   left: 3.5%;
+  animation: anim2 1s ease-out 1 both;
 }
 
 #homepage #desertImage{
@@ -92,6 +100,35 @@ code {
   border-radius: 20px;
 }
 
+#homepage #desertImage:hover{
+  right: 20%;
+  top: 25%;
+  border: 10px solid aliceblue;
+  border-radius: 20px;
+  animation: anim 0.5s linear;
+}
+
+@keyframes anim{
+  from{
+    width: 350px;
+    height: 250px;
+  }
+  to{
+    width: 375px;
+    height: 275px;
+  }
+}
+
+@keyframes anim2{
+  from{
+      opacity: 0;
+      transform: translateX(-35px);
+  }
+  to{
+      opacity: 1;
+  }
+}
+
 #homepage #tundraImage{
   position: absolute;
   right: 7%;
@@ -99,6 +136,83 @@ code {
   border: 10px solid aliceblue;
   border-radius: 20px;
 }
+
+#homepage #tundraImage:hover{
+  position: absolute;
+  right: 7%;
+  top: 57%;
+  border: 10px solid aliceblue;
+  border-radius: 20px;
+  animation: anim 0.5s linear;
+}
+
+#section2{
+  background-color: aliceblue;
+  width: 100%;
+  height: 600px;
+}
+
+#section2 #question2{
+  position: absolute;
+  text-align: left;
+  color: #253722;
+  top: 120%;
+  right: 6%;
+  font-size: 60px;
+  animation: anim2 1s ease-out 1 both;
+}
+
+#section2 #answer2{
+  position: absolute;
+  text-align: left;
+  color: #253722;
+  font-weight: 100;
+  top: 150%;
+  right: 10%;
+  animation: anim2 1s ease-out 1 both;
+}
+
+#section2 #modelClickImage{
+  position: absolute;
+  border: 5px solid black;
+  border-radius: 20px;
+  top: 115%;
+  left: 10%;
+}
+
+#section2 #mapClickImage{
+  position: absolute;
+  border: 5px solid black;
+  border-radius: 20px;
+  top: 130%;
+  left: 30%;
+}
+
+#section3{
+  width: 100%;
+  height: 500px;
+}
+
+#section3 #question3{
+  position: absolute;
+  text-align: left;
+  color: aliceblue;
+  top: 200%;
+  left: 6%;
+  font-size: 60px;
+  animation: anim2 1s ease-out 1 both;
+}
+
+#section3 #answer3{
+  position: absolute;
+  text-align: left;
+  color: aliceblue;
+  font-weight: 100;
+  top: 230%;
+  left: 6%;
+  animation: anim2 1s ease-out 1 both;
+}
+
 
 .picture-container{
   border: 2px solid aliceblue;
