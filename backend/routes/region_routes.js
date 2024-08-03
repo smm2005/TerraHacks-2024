@@ -7,6 +7,19 @@ router.post('/region',
   regions.predictFertility
 )
 
+router.get("/rainfall", 
+  regions.getRainfall
+)
+
+router.get("/temperature", 
+  regions.getTemperature
+)
+
+router.get("/soil", 
+  regions.getSoil
+)
+
+
 router.get("/country-data", 
   regions.getCountryData
 )

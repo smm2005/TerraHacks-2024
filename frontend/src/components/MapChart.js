@@ -16,34 +16,45 @@ const MapChart = () => {
 
     const onClickEvent = (country) => {
         setPrediction(!prediction);
-        // const response = fetch("http://localhost:9897/country-data?country=${country}");
-        // const data = response.json();
-        // console.log(data);
-        const data = {country: "Japan", image: "japan.png", temperature: 20, temperature_rate: 1.234, temperature_intercept: 1, rainfall: 40, rainfall_rate: 3.143, rainfall_intercept: 1, soil_type: 2}
+        const rainfall_response = fetch(`${process.env.REACT_APP_BACKEND_URL}/rainfall?country=${country}`);
+        const rainfallData = rainfall_response.json();
 
-            const newrainfall = []
-            const newtemperature = []
+        const temperature_response = fetch(`${process.env.REACT_APP_BACKEND_URL}/temperature?country=${country}`);
+        const temperatureData = temperature_response.json();
 
-            time.forEach((t) => {
-                newrainfall.push([t, data.rainfall_rate * t + data.rainfall_intercept] );
-                newtemperature.push([t, data.temperature_rate * t + data.temperature_intercept]);
-            })
-            console.log(newrainfall);
+        const soil_response = fetch(`${process.env.REACT_APP_BACKEND_URL}/soil?country=${country}`);
+        const soilData = soil_response.json();
 
-            const rainfall_data = [
-                ["Time", "Rainfall"],
-                ...newrainfall 
-            ];
+        console.log("rainfall data");
+        console.log(rainfallData);
+        console.log("temperature data");
+        console.log(temperatureData);
+        console.log("Soil Data: ");
+        console.log(soilData);
+
+        // const newrainfall = []
+        // const newtemperature = []
+
+        // time.forEach((t) => {
+        //     newrainfall.push([t, data.rainfall_rate * t + data.rainfall_intercept] );
+        //     newtemperature.push([t, data.temperature_rate * t + data.temperature_intercept]);
+        // })
+        // console.log(newrainfall);
+
+        // const rainfall_data = [
+        //     ["Time", "Rainfall"],
+        //     ...newrainfall 
+        // ];
 
 
-            const temperature_data = [
-                ["Time", "Temperature"], 
-                ...newtemperature
-            ]
+        // const temperature_data = [
+        //     ["Time", "Temperature"], 
+        //     ...newtemperature
+        // ]
 
 
-            setRainfall(rainfall_data);
-            setTemperature(temperature_data);
+        // setRainfall(rainfall_data);
+        // setTemperature(temperature_data);
 
     }
 
