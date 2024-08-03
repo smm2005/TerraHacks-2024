@@ -20,6 +20,7 @@ code {
 }
 
 .navbar{
+  background-color: #253722;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,8 +63,37 @@ code {
 .nav-elements ul a:hover{
   text-decoration:none;
   font-size: 20px;
-  animation-name: anim;
-  animation-duration: 3s;
   border-bottom: 2px solid white;
-  transform: scaleX(1);
+}
+
+#homepage #question{
+  position: absolute;
+  text-align: left;
+  color: white;
+  top: 200px;
+  left: 50px;
+  font-size: 60px;
+}
+
+#homepage #answer{
+  position: absolute;
+  text-align: left;
+  color: aliceblue;
+  font-weight: 100;
+  top: 400px;
+  left: 50px;
+}
+
+#homepage #desertImage{
+  position: absolute;
+  right: 270px;
+  top: 180px;
+  border: 10px solid aliceblue;
+}
+
+#homepage #tundraImage{
+  position: absolute;
+  right: 100px;
+  top: 380px;
+  border: 10px solid aliceblue;
 }
