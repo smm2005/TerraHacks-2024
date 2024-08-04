@@ -105,9 +105,10 @@ code {
   top: 25%;
   border: 10px solid aliceblue;
   border-radius: 20px;
-  animation: anim 0.5s linear;
+  animation: anim 0.4s linear;
   animation-fill-mode: forwards;
 }
+
 
 @keyframes anim{
   from{
@@ -119,11 +120,19 @@ code {
     height: 275px;
   }
 }
-
 @keyframes anim2{
   from{
       opacity: 0;
       transform: translateX(-35px);
+  }
+  to{
+      opacity: 1;
+  }
+}
+@keyframes anim3{
+  from{
+      opacity: 0;
+      transform: translateX(35px);
   }
   to{
       opacity: 1;
@@ -144,7 +153,7 @@ code {
   top: 57%;
   border: 10px solid aliceblue;
   border-radius: 20px;
-  animation: anim 0.5s linear;
+  animation: anim 0.4s linear;
   animation-fill-mode: forwards;
 }
 
@@ -161,7 +170,7 @@ code {
   top: 120%;
   right: 6%;
   font-size: 60px;
-  animation: anim2 1s ease-out 1 both;
+  animation: anim3 1s ease-out 1 both;
 }
 
 #section2 #answer2{
@@ -171,7 +180,7 @@ code {
   font-weight: 100;
   top: 150%;
   right: 10%;
-  animation: anim2 1s ease-out 1 both;
+  animation: anim3 1s ease-out 1 both;
 }
 
 #section2 #modelClickImage{
