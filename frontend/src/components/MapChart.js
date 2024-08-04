@@ -10,20 +10,20 @@ const MapChart = () => {
     const [prediction, setPrediction] = useState(false);
     const [rainfall, setRainfall] = useState([]);
     const [temperature, setTemperature] = useState([]);
-    const time = [1, 2, 3, 4, 5]
-    const [chosenCountry, setChosenCountry] = useState();
+    const time = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const [chosenCountry, setChosenCountry] = useState(null);
     const chartRef = React.useRef(null);
 
-    const onClickEvent = (country) => {
+    const onClickEvent = async  (country) => {
         setPrediction(!prediction);
-        const rainfall_response = fetch(`${process.env.REACT_APP_BACKEND_URL}/rainfall?country=${country}`);
-        const rainfallData = rainfall_response.json();
+        const rainfall_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/rainfall?country=${country}`);
+        const rainfallData = await rainfall_response.json();
 
-        const temperature_response = fetch(`${process.env.REACT_APP_BACKEND_URL}/temperature?country=${country}`);
-        const temperatureData = temperature_response.json();
+        const temperature_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/temperature?country=${country}`);
+        const temperatureData = await temperature_response.json();
 
-        const soil_response = fetch(`${process.env.REACT_APP_BACKEND_URL}/soil?country=${country}`);
-        const soilData = soil_response.json();
+        const soil_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/soil?country=${country}`);
+        const soilData = await soil_response.json();
 
         console.log("rainfall data");
         console.log(rainfallData);
@@ -324,8 +324,8 @@ const MapChart = () => {
                 point:{
                     events:{
                         click: function(){
-                            setChosenCountry(this.name);
-                            onClickEvent(this.name)
+                            setChosenCountry(this.name.toString());
+                            onClickEvent(this.name.toString())
                         }
                     }
                 }
@@ -358,24 +358,25 @@ const MapChart = () => {
                         ref={chartRef}
                     />
                 </div>
-
-                <div className="model-predict-container">
-                    <Chart
-                        chartType="LineChart"
-                        width="100%"
-                        height="100%"
-                        data={rainfall}
-                        options={option_rainfall}
-                        />
-                    <Chart
-                        chartType="LineChart"
-                        title="Predict Temperature"
-                        width="100%"
-                        height="100%"
-                        data={temperature}
-                        options={option_temperature}
-                        />
-                </div>
+                {chosenCountry && 
+                    <div className="model-predict-container">
+                        <Chart
+                            chartType="LineChart"
+                            width="100%"
+                            height="100%"
+                            data={rainfall}
+                            options={option_rainfall}
+                            />
+                        <Chart
+                            chartType="LineChart"
+                            title="Predict Temperature"
+                            width="100%"
+                            height="100%"
+                            data={temperature}
+                            options={option_temperature}
+                            />
+                    </div>
+                }
             </div>
         </div>
 
