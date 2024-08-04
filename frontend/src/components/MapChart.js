@@ -10,7 +10,7 @@ const MapChart = (props) => {
     const [prediction, setPrediction] = useState(false);
     const [rainfall, setRainfall] = useState([]);
     const [temperature, setTemperature] = useState([]);
-    const [soil, setSoil] = useState([])
+    const soil = props.soil
     const time = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const chosenCountry = props.chosenCountry;
     const chartRef = React.useRef(null);
@@ -65,7 +65,7 @@ const MapChart = (props) => {
 
         setRainfall(rainfall_data);
         setTemperature(temperature_data);
-        setSoil(soil_data);
+        props.setSoil(soil_data);
 
     }
 

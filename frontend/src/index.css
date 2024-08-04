@@ -246,3 +246,13 @@ code {
   color: aliceblue;
   overflow: hidden;
 }
+
+.solution-elements{
+  border: 2px solid aliceblue;
+  text-align :center;
+  color:burlywood;
+}
+
+#hyplink{
+  font-size: 40px;
+}

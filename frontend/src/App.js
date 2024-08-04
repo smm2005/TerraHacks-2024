@@ -13,15 +13,16 @@ import Solution from './components/pages/Solution';
 
 function App() {
   const [chosenCountry, setChosenCountry] = useState(null);
+  const [soil, setSoil] = useState([])
   return (
 
     <div className="App">
       <BrowserRouter>
         <Navbar />
           <Routes>
-            <Route path="" element={<Home />} />
-            <Route path="/model" element={<Model chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/>} />
-            <Route path="/solution" element={<Solution chosenCountry={chosenCountry}/>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/model" element={<Model chosenCountry={chosenCountry} setChosenCountry={setChosenCountry} soil={soil} setSoil={setSoil}/>} />
+            <Route path="/solution" element={<Solution chosenCountry={chosenCountry} soil={soil}/>} />
           </Routes>
         </BrowserRouter>
     </div>
