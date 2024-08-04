@@ -15,6 +15,7 @@ code {
 .Header{
   background-color: #253722;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -22,8 +23,17 @@ code {
 .navbar{
   background-color: #253722;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+}
+
+#section1{
+  background-color: #4B6F44;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .nav-elements #title{
@@ -32,6 +42,7 @@ code {
   font-weight: 450;
   font-style: normal;
   display: flex;
+  flex-wrap: nowrap;
   background-color: 	#253722;
   color: aliceblue;
   padding: 0 auto;
@@ -42,6 +53,7 @@ code {
 
 .nav-elements ul{
   display: flex;
+  flex-wrap: nowrap;
   list-style: none;
   justify-content: space-between;
 }
@@ -55,14 +67,15 @@ code {
 
 .nav-elements ul a{
   text-decoration: none;
-  font-size: 20px;
+  font-size: 130%;
   color: aliceblue;
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .nav-elements ul a:hover{
   text-decoration:none;
-  font-size: 20px;
+  font-size: 130%;
   border-bottom: 2px solid white;
 }
 
@@ -73,6 +86,9 @@ code {
   top: 30%;
   left: 3.5%;
   font-size: 60px;
+  animation: anim2 1s ease-out 1 both;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 #homepage #answer{
@@ -82,6 +98,9 @@ code {
   font-weight: 100;
   top: 60%;
   left: 3.5%;
+  display: flex;
+  flex-wrap: nowrap;
+  animation: anim2 1s ease-out 1 both;
 }
 
 #homepage #desertImage{
@@ -92,16 +111,138 @@ code {
   border-radius: 20px;
 }
 
+#homepage #desertImage:hover{
+  right: 20%;
+  top: 25%;
+  border: 10px solid aliceblue;
+  border-radius: 20px;
+  animation: anim 0.4s linear;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes anim{
+  from{
+    width: 23%;
+    height: 33%;
+  }
+  to{
+    width: 25%;
+    height: 35%;
+  }
+}
+@keyframes anim2{
+  from{
+      opacity: 0;
+      transform: translateX(-35px);
+  }
+  to{
+      opacity: 1;
+  }
+}
+@keyframes anim3{
+  from{
+      opacity: 0;
+      transform: translateX(35px);
+  }
+  to{
+      opacity: 1;
+  }
+}
+
 #homepage #tundraImage{
   position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
   right: 7%;
   top: 57%;
   border: 10px solid aliceblue;
   border-radius: 20px;
 }
 
+#homepage #tundraImage:hover{
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  right: 7%;
+  top: 57%;
+  border: 10px solid aliceblue;
+  border-radius: 20px;
+  animation: anim 0.4s linear;
+  animation-fill-mode: forwards;
+}
+
+#section2{
+  background-color: aliceblue;
+  width: 100%;
+  height: 600px;
+}
+
+#section2 #question2{
+  position: absolute;
+  text-align: left;
+  color: #253722;
+  top: 120%;
+  right: 6%;
+  font-size: 375%;
+  animation: anim3 1s ease-out 1 both;
+}
+
+#section2 #answer2{
+  position: absolute;
+  text-align: left;
+  color: #253722;
+  font-weight: 100;
+  top: 150%;
+  right: 10%;
+  animation: anim3 1s ease-out 1 both;
+}
+
+#section2 #modelClickImage{
+  position: absolute;
+  border: 5px solid black;
+  border-radius: 20px;
+  top: 115%;
+  left: 10%;
+}
+
+#section2 #mapClickImage{
+  position: absolute;
+  border: 5px solid black;
+  border-radius: 20px;
+  top: 130%;
+  left: 30%;
+}
+
+#section3{
+  width: 100%;
+  height: 500px;
+}
+
+#section3 #question3{
+  position: absolute;
+  text-align: left;
+  color: aliceblue;
+  top: 200%;
+  left: 6%;
+  font-size: 375%;
+  animation: anim2 1s ease-out 1 both;
+}
+
+#section3 #answer3{
+  position: absolute;
+  text-align: left;
+  color: aliceblue;
+  font-weight: 100;
+  top: 230%;
+  left: 6%;
+  animation: anim2 1s ease-out 1 both;
+}
+
+
 .picture-container{
   border: 2px solid aliceblue;
   border-radius: 20px;
   color: aliceblue;
+  overflow: hidden;
 }
