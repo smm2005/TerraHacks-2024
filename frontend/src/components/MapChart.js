@@ -37,8 +37,9 @@ const MapChart = (props) => {
         const newSoil = []
 
         time.forEach((t) => {
-            newRainfall.push([2023 + t, parseInt(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
-            newTemperature.push([2023 + t, parseInt(temperatureData.CRI) * t + parseInt(temperatureData.temperature)]);
+            newRainfall.push([2023 + t, 1/parseFloat(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
+            newTemperature.push([2023 + t, 1/parseFloat(temperatureData.CRI)  * t + parseInt(temperatureData.temperature)]);
+            
         })
         console.log(newRainfall);
         console.log(newTemperature);

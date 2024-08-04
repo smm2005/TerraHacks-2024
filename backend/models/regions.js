@@ -36,7 +36,11 @@ const getTemperature = (req, res) => {
     database.query(query,  (err, results) => {
         if (err) throw err;
         console.log(results);
-        res.status(200).send(results[0]);
+        if (results.length > 0){
+            res.status(200).send(results[0])
+        } else {
+            res.status(404).send({message: "No data found for the country" })
+        }
     })
 }
 
@@ -47,7 +51,11 @@ const getSoil = (req, res) => {
     database.query(query, (err, results) => {
         if (err) throw err;
         console.log(results);
-        res.status(200).send(results[0])
+        if (results.length > 0){
+            res.status(200).send(results[0])
+        } else {
+            res.status(404).send({message: "No data found for the country" })
+        }
     })
 }
 

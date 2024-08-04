@@ -98,7 +98,7 @@ INSERT INTO temp(Country,Temperature) VALUES ('El Salvador',25.23);
 INSERT INTO temp(Country,Temperature) VALUES ('Kenya',25.22);
 INSERT INTO temp(Country,Temperature) VALUES ('India',25.2);
 INSERT INTO temp(Country,Temperature) VALUES ('Tonga',25.1);
-INSERT INTO temp(Country,Temperature) VALUES ('Congo',25.05);
+INSERT INTO temp(Country,Temperature) VALUES ('Democratic Republic of the Congo',25.05);
 INSERT INTO temp(Country,Temperature) VALUES ('Haiti',25.01);
 INSERT INTO temp(Country,Temperature) VALUES ('Fiji',24.98);
 INSERT INTO temp(Country,Temperature) VALUES ('Cameroon',24.94);
@@ -276,7 +276,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Côte d''Ivoire','0.70292887')
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Croatia','0.860502092');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Cyprus','0.569037657');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Czech Republic','0.345857741');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Congo','0.53832636');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Democratic Republic of the Congo','0.53832636');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Democratic Republic of Ti-mor-Leste','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Denmark','0.467196653');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Djibouti','0.327782427');
@@ -297,6 +297,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Georgia','0.772635983');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Germany','0.069707113');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Ghana','0.525774059');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Greece','0.152050209');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Greenland','0.4486135');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Grenada','0.543933054');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Guatemala','0.601087866');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Guinea','1');
@@ -461,7 +462,7 @@ INSERT INTO soil_table(Country,soil) VALUES ('Chile',6.3);
 INSERT INTO soil_table(Country,soil) VALUES ('China',6.7);
 INSERT INTO soil_table(Country,soil) VALUES ('Colombia',4.0);
 INSERT INTO soil_table(Country,soil) VALUES ('Comoros',5.5);
-INSERT INTO soil_table(Country,soil) VALUES ('Congo',4.0);
+INSERT INTO soil_table(Country,soil) VALUES ('Democratic Republic of the Congo',4.0);
 INSERT INTO soil_table(Country,soil) VALUES ('Costa Rica',9.0);
 INSERT INTO soil_table(Country,soil) VALUES ('Côte d''Ivoire',4.0);
 INSERT INTO soil_table(Country,soil) VALUES ('Croatia',8.5);
@@ -621,7 +622,7 @@ INSERT INTO soil_table(Country,soil) VALUES ('Zimbabwe',5.5);
 
 CREATE TABLE IF NOT EXISTS rainfall(
    Country               VARCHAR(100) NOT NULL PRIMARY KEY,
-   Precipitation_Average NUMERIC(5,1) NOT NULL,
+   Precipitation_Average NUMERIC(10,1) NOT NULL,
    rate_of_change        NUMERIC(10,8)  NOT NULL
 );
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Afghanistan', 327, -0.093248082);
@@ -657,7 +658,7 @@ INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Ch
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('China', 645, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Cote d''Ivoire', 1348, 0.611870409);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Cameroon', 1604, -0.349547433);
-INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Congo', 1543, -1.815296256);
+INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Democratic Republic of the Congo', 1543, -1.815296256);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Colombia', 3240, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Comoros', 900, 0.611870409);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Cabo Verde', 228, -0.349547433);
@@ -693,7 +694,7 @@ INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Gr
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Grenada', 2008, -0.349547433);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Guadeloupe', 1184, -1.815296256);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Honduras', 1295, -0.093248082);
-INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Hong Kong SAR, China', 2326, -0.314114343);
+INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Hong Kong', 2326, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Hungary', 581, 0.611870409);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Indonesia', 2990, -0.349547433);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('India', 1172, -1.815296256);
@@ -780,7 +781,7 @@ INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Tu
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('United Republic of Tanzania', 1440, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Ukraine', 635, 0.611870409);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Uruguay', 1066, -0.349547433);
-INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('United States',715, );
+INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('United States',715, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Uzbekistan', 153, -1.815296256);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Vanuatu', 2691, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Venezuela, RB', 967, -0.314114343);
