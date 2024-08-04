@@ -627,7 +627,7 @@ INSERT INTO soil_table(Country,soil) VALUES ('Zimbabwe',5.5);
 
 
 CREATE TABLE IF NOT EXISTS rainfall(
-   Country               VARCHAR(30) NOT NULL PRIMARY KEY,
+   Country               VARCHAR(100) NOT NULL PRIMARY KEY,
    Precipitation_Average NUMERIC(5,1) NOT NULL,
    rate_of_change        NUMERIC(10,8)  NOT NULL
 );
@@ -749,7 +749,6 @@ INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Ni
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Nicaragua', 1535, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Netherlands', 844, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Norway', 732, 0.611870409);
-INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Nepal', 1441, -0.349547433);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('New Zealand', 1253, -1.815296256);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Oman', 79, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Pakistan', 151, -0.314114343);
