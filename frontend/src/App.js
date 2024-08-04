@@ -12,6 +12,7 @@ import Solution from './components/pages/Solution';
 
 
 function App() {
+  const [chosenCountry, setChosenCountry] = useState(null);
   return (
 
     <div className="App">
@@ -21,8 +22,8 @@ function App() {
         <Navbar />
           <Routes>
             <Route path="" element={<Home />} />
-            <Route path="/model" element={<Model />} />
-            <Route path="/solution" element={<Solution />} />
+            <Route path="/model" element={<Model chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/>} />
+            <Route path="/solution" element={<Solution chosenCountry={chosenCountry}/>} />
           </Routes>
         </BrowserRouter>
     </div>

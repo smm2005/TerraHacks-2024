@@ -5,15 +5,14 @@ import Highcharts from "highcharts/highmaps";
 import { Chart } from "react-google-charts";
 
 import worldMap from "@highcharts/map-collection/custom/world.geo.json";
-
-const MapChart = () => {
+const MapChart = (props) => {
     const [prediction, setPrediction] = useState(false);
     const [rainfall, setRainfall] = useState([]);
     const [temperature, setTemperature] = useState([]);
     const time = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    const [chosenCountry, setChosenCountry] = useState(null);
+    const chosenCountry = props.chosenCountry;
     const chartRef = React.useRef(null);
-
+    
     const onClickEvent = async  (country) => {
         setPrediction(!prediction);
         const rainfall_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/rainfall?country=${country}`);
@@ -79,7 +78,7 @@ const MapChart = () => {
         events: {
             load: function () {
                 // Initialize chosenCountry state
-                setChosenCountry(null);
+                props.setChosenCountry(null);
             }
         },
         mapNavigation: {
@@ -326,7 +325,7 @@ const MapChart = () => {
                 point:{
                     events:{
                         click: function(){
-                            setChosenCountry(this.name.toString());
+                            props.setChosenCountry(this.name.toString());
                             onClickEvent(this.name.toString())
                         }
                     }
@@ -379,6 +378,7 @@ const MapChart = () => {
                             />
                     </div>
                 }
+
             </div>
         </div>
 

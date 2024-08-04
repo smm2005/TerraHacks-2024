@@ -1,8 +1,8 @@
 import MapChart from "../MapChart";
 
-function Model () {
+function Model (props) {
     return (
-        <MapChart />
+        <MapChart chosenCountry={props.chosenCountry} setChosenCountry={props.setChosenCountry}/>
     )
 }
 
