@@ -1,6 +1,29 @@
 const express = require("express");
 const database = require("../database/db");
 const MLR = require("ml-regression-multivariate-linear");
+const { HfInference } = require("@huggingface/inference");
+const dotenv = require("dotenv");
+const {HF_ACCESS_TOKEN} = require("../secret-data");
+
+const hf = new HfInference(HF_ACCESS_TOKEN);
+
+async function generateText(stringForAI) {
+    let out = "";
+    for await (const chunk of hf.chatCompletionStream({
+      model: "mistralai/Mistral-7B-Instruct-v0.2",
+      messages: [
+        { role: "user", content: stringForAI },
+      ],
+      max_tokens: 500,
+      temperature: 0.1,
+      seed: 0,
+    })) {
+      if (chunk.choices && chunk.choices.length > 0) {
+        out += chunk.choices[0].delta.content;
+      }
+    }
+    return out;
+  }
 
 function functionString (model) {
     let str = "";
@@ -92,10 +115,21 @@ const getCountryData = (req, res) => {
     });
 }
 
+
+const huggingFaceResponse = async (req, res) => {
+    const {text} = req.body
+
+    const result = await generateText(text);
+    console.log(result)
+    res.status(200).send({result: result});
+
+}
+
 module.exports = {
     predictFertility, 
     getCountryData, 
     getRainfall, 
     getTemperature, 
-    getSoil
+    getSoil, 
+    huggingFaceResponse
 }

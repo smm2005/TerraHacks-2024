@@ -24,4 +24,8 @@ router.get("/country-data",
   regions.getCountryData
 )
 
+router.post("/hugging-face", 
+  regions.huggingFaceResponse
+)
+
 module.exports = router;
