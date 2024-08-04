@@ -10,6 +10,7 @@ const MapChart = (props) => {
     const [prediction, setPrediction] = useState(false);
     const [rainfall, setRainfall] = useState([]);
     const [temperature, setTemperature] = useState([]);
+    const [soil, setSoil] = useState([])
     const time = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const chosenCountry = props.chosenCountry;
     const chartRef = React.useRef(null);
@@ -37,12 +38,13 @@ const MapChart = (props) => {
         const newSoil = []
 
         time.forEach((t) => {
-            newRainfall.push([2023 + t, 1/parseFloat(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
+            newRainfall.push([2023 + t, parseFloat(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
             newTemperature.push([2023 + t, 1/parseFloat(temperatureData.CRI)  * t + parseInt(temperatureData.temperature)]);
-            
+            newSoil.push([2023 + t, parseFloat(rainfallData.rate_of_change) * 1/parseFloat(temperatureData.CRI)  * t + parseFloat(soilData.soil)])
         })
         console.log(newRainfall);
         console.log(newTemperature);
+        console.log(newSoil);
 
         const rainfall_data = [
             ["Time", "Rainfall"],
@@ -55,14 +57,26 @@ const MapChart = (props) => {
             ...newTemperature
         ]
 
+        const soil_data = [
+            ["Time", "Soil"],
+            ...newSoil
+        ]
+
 
         setRainfall(rainfall_data);
         setTemperature(temperature_data);
+        setSoil(soil_data);
 
     }
 
     const option_rainfall = {
         title: "Rainfall Prediction",
+        curveType: "function",
+        legend: { position: "bottom" },
+    };
+
+    const option_soil = {
+        title: "Fertility / Soil Prediction",
         curveType: "function",
         legend: { position: "bottom" },
     };
@@ -377,6 +391,14 @@ const MapChart = (props) => {
                             height="100%"
                             data={temperature}
                             options={option_temperature}
+                            />
+                        <Chart
+                            chartType="LineChart"
+                            title="Predict Temperature"
+                            width="100%"
+                            height="100%"
+                            data={soil}
+                            options={option_soil}
                             />
                     </div>
                 }

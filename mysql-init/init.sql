@@ -316,7 +316,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Iran','0.496485356');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Israel','0.70292887');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Italy','0.235732218');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Jamaica','0.870292887');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Japan','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Japan','0.01');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Jordan','0.396731969');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Kazakhstan','0.767196697');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Kenya','0.074672758');
@@ -365,7 +365,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Panama','0.633927787');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Papua New Guinea','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Paraguay','0.862338575');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Peru','0.72766406');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Philippines','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Philippines','0.1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Poland','0.283018868');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Portugal','0.48745283');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Puerto Rico','0.836509434');
@@ -387,7 +387,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Solomon Islands','0.228018868'
 INSERT INTO CRI_table(Country,Normalize) VALUES ('South Africa','0.323867925');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('South Sudan','0.91509434');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Spain','0.270471698');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Sri Lanka','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Sri Lanka','0.1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('St. Kitts and Nevis','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('St. Lucia','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('St. Vincent and the Grenadines','1');
@@ -410,14 +410,14 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Uganda','0.008302857');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Ukraine','0.805574775');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('United Arab Emirates','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('United Kingdom','0.494217653');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('United States of America','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('United States of America','0.1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Uruguay','0.096124659');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Uzbekistan','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Vanuatu','0.187190124');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Venezuela','0.789234038');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Vietnam','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Vietnam','0.1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Zambia','1');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('Zimbabwe','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('Zimbabwe','0.1');
 
 
 CREATE TABLE IF NOT EXISTS soil_table(
@@ -781,7 +781,7 @@ INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Tu
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('United Republic of Tanzania', 1440, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Ukraine', 635, 0.611870409);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Uruguay', 1066, -0.349547433);
-INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('United States',715, -0.093248082);
+INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('United States of America',715, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Uzbekistan', 153, -1.815296256);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Vanuatu', 2691, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Venezuela, RB', 967, -0.314114343);
