@@ -32,29 +32,31 @@ const MapChart = () => {
         console.log("Soil Data: ");
         console.log(soilData);
 
-        // const newrainfall = []
-        // const newtemperature = []
+        const newRainfall = []
+        const newTemperature = []
+        const newSoil = []
 
-        // time.forEach((t) => {
-        //     newrainfall.push([t, data.rainfall_rate * t + data.rainfall_intercept] );
-        //     newtemperature.push([t, data.temperature_rate * t + data.temperature_intercept]);
-        // })
-        // console.log(newrainfall);
+        time.forEach((t) => {
+            newRainfall.push([2023 + t, parseInt(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
+            newTemperature.push([2023 + t, parseInt(temperatureData.CRI) * t + parseInt(temperatureData.temperature)]);
+        })
+        console.log(newRainfall);
+        console.log(newTemperature);
 
-        // const rainfall_data = [
-        //     ["Time", "Rainfall"],
-        //     ...newrainfall 
-        // ];
-
-
-        // const temperature_data = [
-        //     ["Time", "Temperature"], 
-        //     ...newtemperature
-        // ]
+        const rainfall_data = [
+            ["Time", "Rainfall"],
+            ...newRainfall 
+        ];
 
 
-        // setRainfall(rainfall_data);
-        // setTemperature(temperature_data);
+        const temperature_data = [
+            ["Time", "Temperature"], 
+            ...newTemperature
+        ]
+
+
+        setRainfall(rainfall_data);
+        setTemperature(temperature_data);
 
     }
 
