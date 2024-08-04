@@ -6,9 +6,9 @@ import { roundedRect } from "highcharts";
 function Solution(props){
     const [AIresponse, setAIresponse] = useState("");
     const chosenCountry = props.chosenCountry;
-    
-    const newest_soil = props.soil[0];
-    const oldest_soil = props.soil[-1];
+    const [newestSoil, setNewestSoil] = useState(0);
+    const [oldestSoil, setOldestSoil] = useState(0);
+
 
     const getSoil = (soilVal) => {
       const roundup = Math.round(soilVal);
@@ -33,10 +33,10 @@ function Solution(props){
       }
     }
 
-    const stringForAI="How can I prevent " + getSoil(oldest_soil) + " soil from turning into " + 
-    getSoil(newest_soil) + " soil?";
-    const supportString = "Solution to prevent " + getSoil(oldest_soil) + " soil from turning into " +
-    getSoil(newest_soil) + " soil:";
+    const stringForAI="How can I prevent " + getSoil(oldestSoil) + " soil from turning into " + 
+    getSoil(newestSoil) + " soil?";
+    const supportString = "Solution to prevent " + getSoil(oldestSoil) + " soil from turning into " +
+    getSoil(newestSoil) + " soil:";
 
     useEffect(() => {
       const getAIData = async () => {
@@ -56,6 +56,12 @@ function Solution(props){
 
       }
       if (chosenCountry) {
+        if (props.soil.length > 0){
+          console.log(props.soil)
+          console.log(props.soil[-1])
+          setNewestSoil(props.soil[props.soil.length - 1][1]);
+          setOldestSoil(props.soil[1][1]);
+        }
         getAIData();
       }
       
@@ -83,7 +89,6 @@ function Solution(props){
         }
         </>
     )
-    
 }
 
 export default Solution;
