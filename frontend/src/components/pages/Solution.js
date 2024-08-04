@@ -64,19 +64,21 @@ function Solution(props){
     return(
         <>
         {chosenCountry ? 
-            <div>
+            <div className = "solution-elements" id = "format-for-solution">
+                <div id = "sol-header">
                 {supportString}
+                </div>
                 <div>
                   {AIresponse.length > 0 && AIresponse}
                 </div>
             </div>
             : 
             <div className="solution-elements">
-                <h1 >To see our proposed solution, please select a country from <br></br>the interactive map on the 
-                    </h1>
+                <h2>To see our proposed solution, please select a country from <br></br>the interactive map on the 
+                    </h2>
                     <NavLink to="/model" id="hyplink">MODEL</NavLink>
-                <h1>page and come back<br></br> to a page full of intuitive Generative AI solutions!
-                </h1>
+                <h2>page and come back<br></br> to a page full of intuitive Generative AI solutions!
+                </h2>
             </div>
         }
         </>
