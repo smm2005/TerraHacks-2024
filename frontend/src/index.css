@@ -30,6 +30,7 @@ code {
   background-color: #4B6F44;
   width: 100%;
   height: 600px;
+  display: inline-block;
 }
 
 .nav-elements #title{
@@ -37,7 +38,7 @@ code {
   font-optical-sizing: auto;
   font-weight: 450;
   font-style: normal;
-  display: flex;
+  display: inline-block;
   background-color: 	#253722;
   color: aliceblue;
   padding: 0 auto;
@@ -61,14 +62,14 @@ code {
 
 .nav-elements ul a{
   text-decoration: none;
-  font-size: 20px;
+  font-size: 130%;
   color: aliceblue;
   display: flex;
 }
 
 .nav-elements ul a:hover{
   text-decoration:none;
-  font-size: 20px;
+  font-size: 130%;
   border-bottom: 2px solid white;
 }
 
@@ -80,6 +81,7 @@ code {
   left: 3.5%;
   font-size: 60px;
   animation: anim2 1s ease-out 1 both;
+  display: inline-block;
 }
 
 #homepage #answer{
@@ -89,6 +91,7 @@ code {
   font-weight: 100;
   top: 60%;
   left: 3.5%;
+  display: inline-block;
   animation: anim2 1s ease-out 1 both;
 }
 
@@ -105,9 +108,10 @@ code {
   top: 25%;
   border: 10px solid aliceblue;
   border-radius: 20px;
-  animation: anim 0.5s linear;
+  animation: anim 0.4s linear;
   animation-fill-mode: forwards;
 }
+
 
 @keyframes anim{
   from{
@@ -119,11 +123,19 @@ code {
     height: 275px;
   }
 }
-
 @keyframes anim2{
   from{
       opacity: 0;
       transform: translateX(-35px);
+  }
+  to{
+      opacity: 1;
+  }
+}
+@keyframes anim3{
+  from{
+      opacity: 0;
+      transform: translateX(35px);
   }
   to{
       opacity: 1;
@@ -144,7 +156,7 @@ code {
   top: 57%;
   border: 10px solid aliceblue;
   border-radius: 20px;
-  animation: anim 0.5s linear;
+  animation: anim 0.4s linear;
   animation-fill-mode: forwards;
 }
 
@@ -160,8 +172,8 @@ code {
   color: #253722;
   top: 120%;
   right: 6%;
-  font-size: 60px;
-  animation: anim2 1s ease-out 1 both;
+  font-size: 375%;
+  animation: anim3 1s ease-out 1 both;
 }
 
 #section2 #answer2{
@@ -171,7 +183,7 @@ code {
   font-weight: 100;
   top: 150%;
   right: 10%;
-  animation: anim2 1s ease-out 1 both;
+  animation: anim3 1s ease-out 1 both;
 }
 
 #section2 #modelClickImage{
@@ -201,7 +213,7 @@ code {
   color: aliceblue;
   top: 200%;
   left: 6%;
-  font-size: 60px;
+  font-size: 375%;
   animation: anim2 1s ease-out 1 both;
 }
 
