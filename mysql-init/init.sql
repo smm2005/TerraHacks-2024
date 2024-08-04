@@ -22,7 +22,7 @@ INSERT INTO example ( country, image, temperature, temperature_rate, temperature
 
 
 CREATE TABLE IF NOT EXISTS temp(
-   Country     VARCHAR(29) NOT NULL PRIMARY KEY,
+   Country     VARCHAR(100) NOT NULL PRIMARY KEY,
   Temperature NUMERIC(6,2) NOT NULL
 );
 INSERT INTO temp (Country,Temperature) VALUES ('Burkina Faso',29.28);
@@ -204,7 +204,7 @@ INSERT INTO temp(Country,Temperature) VALUES ('Isle of Man',9.89);
 INSERT INTO temp(Country,Temperature) VALUES ('Slovakia',9.81);
 INSERT INTO temp(Country,Temperature) VALUES ('Denmark',9.77);
 INSERT INTO temp(Country,Temperature) VALUES ('Andorra',9.73);
-INSERT INTO temp(Country,Temperature) VALUES ('United States',9.73);
+INSERT INTO temp(Country,Temperature) VALUES ('United States of America',9.73);
 INSERT INTO temp(Country,Temperature) VALUES ('Czech Republic',9.71);
 INSERT INTO temp(Country,Temperature) VALUES ('Poland',9.7);
 INSERT INTO temp(Country,Temperature) VALUES ('Chile',9.37);
@@ -233,7 +233,7 @@ INSERT INTO temp(Country,Temperature) VALUES ('Greenland',-18.62);
 
 
 CREATE TABLE IF NOT EXISTS CRI_table(
-  Country     VARCHAR(36) NOT NULL PRIMARY KEY
+  Country     VARCHAR(100) NOT NULL PRIMARY KEY
   ,Normalize   VARCHAR(11) NOT NULL
 );
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Albania','0.857740586');
@@ -415,7 +415,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Uganda','0.008302857');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Ukraine','0.805574775');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('United Arab Emirates','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('United Kingdom','0.494217653');
-INSERT INTO CRI_table(Country,Normalize) VALUES ('United States','0');
+INSERT INTO CRI_table(Country,Normalize) VALUES ('United States of America','0');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Uruguay','0.096124659');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Uzbekistan','1');
 INSERT INTO CRI_table(Country,Normalize) VALUES ('Vanuatu','0.187190124');
@@ -426,7 +426,7 @@ INSERT INTO CRI_table(Country,Normalize) VALUES ('Zimbabwe','0');
 
 
 CREATE TABLE IF NOT EXISTS soil_table(
-   Country          VARCHAR(32) NOT NULL PRIMARY KEY
+   Country          VARCHAR(100) NOT NULL PRIMARY KEY
   ,soil NUMERIC(4,1) NOT NULL
 );
 INSERT INTO soil_table(Country,soil) VALUES ('Afghanistan',2.5);
@@ -614,7 +614,7 @@ INSERT INTO soil_table(Country,soil) VALUES ('Uganda',4.0);
 INSERT INTO soil_table(Country,soil) VALUES ('Ukraine',8.5);
 INSERT INTO soil_table(Country,soil) VALUES ('United Arab Emirates',2.5);
 INSERT INTO soil_table(Country,soil) VALUES ('United Kingdom',6.0);
-INSERT INTO soil_table(Country,soil) VALUES ('United States',6.3);
+INSERT INTO soil_table(Country,soil) VALUES ('United States of America',6.3);
 INSERT INTO soil_table(Country,soil) VALUES ('Uruguay',8.5);
 INSERT INTO soil_table(Country,soil) VALUES ('Uzbekistan',2.5);
 INSERT INTO soil_table(Country,soil) VALUES ('Vanuatu',9.0);
@@ -660,7 +660,6 @@ INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Bh
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Botswana', 416, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Central African Republic', 1343, 0.611870409);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Canada', 537, -0.349547433);
-INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Switzerland', 1537, -1.815296256);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Chile', 1522, -0.093248082);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('China', 645, -0.314114343);
 INSERT INTO rainfall(Country, Precipitation_Average, rate_of_change) VALUES ('Cote d''Ivoire', 1348, 0.611870409);
