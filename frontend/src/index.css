@@ -30,6 +30,7 @@ code {
   background-color: #4B6F44;
   width: 100%;
   height: 600px;
+  display: inline-block;
 }
 
 .nav-elements #title{
@@ -37,7 +38,7 @@ code {
   font-optical-sizing: auto;
   font-weight: 450;
   font-style: normal;
-  display: flex;
+  display: inline-block;
   background-color: 	#253722;
   color: aliceblue;
   padding: 0 auto;
@@ -61,20 +62,15 @@ code {
 
 .nav-elements ul a{
   text-decoration: none;
-  font-size: 20px;
+  font-size: 130%;
   color: aliceblue;
   display: flex;
 }
 
 .nav-elements ul a:hover{
   text-decoration:none;
-  font-size: 20px;
+  font-size: 130%;
   border-bottom: 2px solid white;
-}
-
-#homepage{
-  align-items: center;
-  justify-content: center;
 }
 
 #homepage #question{
@@ -85,6 +81,7 @@ code {
   left: 3.5%;
   font-size: 60px;
   animation: anim2 1s ease-out 1 both;
+  display: inline-block;
 }
 
 #homepage #answer{
@@ -94,6 +91,7 @@ code {
   font-weight: 100;
   top: 60%;
   left: 3.5%;
+  display: inline-block;
   animation: anim2 1s ease-out 1 both;
 }
 
@@ -174,7 +172,7 @@ code {
   color: #253722;
   top: 120%;
   right: 6%;
-  font-size: 60px;
+  font-size: 375%;
   animation: anim3 1s ease-out 1 both;
 }
 
@@ -215,7 +213,7 @@ code {
   color: aliceblue;
   top: 200%;
   left: 6%;
-  font-size: 60px;
+  font-size: 375%;
   animation: anim2 1s ease-out 1 both;
 }
 
