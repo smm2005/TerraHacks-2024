@@ -72,6 +72,11 @@ code {
   border-bottom: 2px solid white;
 }
 
+#homepage{
+  align-items: center;
+  justify-content: center;
+}
+
 #homepage #question{
   position: absolute;
   text-align: left;
