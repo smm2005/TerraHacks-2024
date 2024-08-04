@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 //import generateText from "\backend\AI.js";
 import {useEffect, useState} from "react";
+import { roundedRect } from "highcharts";
 
 function Solution(props){
     const [AIresponse, setAIresponse] = useState("");
@@ -9,30 +10,27 @@ function Solution(props){
     const newest_soil = props.soil[0];
     const oldest_soil = props.soil[-1];
 
-    function getSoil(soilVal){
-      let soil;
-        switch (Math.round(soilVal)) {
-            case 9, 10:
-              soil = "Mollisols"
-            case 8:
-              soil = "Andisols"
-            case 7:
-              soil = "Alfisols"
-            case 6:
-              soil = "Histosols/Vertisols"
-            case 5:
-              soil = "Inceptisols"
-            case 4:
-              soil = "Oxisols/Ultisols"
-            case 3:
-              soil = "Spodosols/Entisols"
-            case 2:
-              soil = "Aridisols"
-            case 1, 0:
-              soil = "Gelisols"
-            
-          }
-        return soil;
+    const getSoil = (soilVal) => {
+      const roundup = Math.round(soilVal);
+      if (roundup === 9 || roundup === 10) {
+        return "Mollisols"
+      } else if (roundup ===  8) {
+        return "Andisols"
+      } else if (roundup === 7) {
+        return "Alfisols"
+      } else if (roundup === 6) {
+        return "Histosols/Vertisols"
+      } else if (roundup === 5) {
+        return "Inceptisols"
+      } else if (roundup === 4) {
+        return "Oxisols/Ultisols"
+      } else if (roundup === 3) {
+        return "Spodosols/Entisols"
+      } else if (roundup === 2) {
+        return "Aridisols"
+      } else if (roundup === 1 || roundup === 0) {
+        return "Gelisols"
+      }
     }
 
     const stringForAI="How can I prevent " + getSoil(oldest_soil) + " soil from turning into " + 

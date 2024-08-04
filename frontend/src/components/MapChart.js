@@ -8,8 +8,8 @@ import worldMap from "@highcharts/map-collection/custom/world.geo.json";
 
 const MapChart = (props) => {
     const [prediction, setPrediction] = useState(false);
-    const [rainfall, setRainfall] = useState([]);
-    const [temperature, setTemperature] = useState([]);
+    const rainfall = props.rainfall;
+    const temperature = props.temperature;
     const soil = props.soil
     const time = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const chosenCountry = props.chosenCountry;
@@ -38,34 +38,34 @@ const MapChart = (props) => {
         const newSoil = []
 
         time.forEach((t) => {
-            newRainfall.push([2023 + t, parseFloat(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
-            newTemperature.push([2023 + t, 1/parseFloat(temperatureData.CRI)  * t + parseInt(temperatureData.temperature)]);
-            newSoil.push([2023 + t, parseFloat(rainfallData.rate_of_change) * 1/parseFloat(temperatureData.CRI)  * t + parseFloat(soilData.soil)])
+            newRainfall.push([`${2023 + t}`, parseFloat(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
+            newTemperature.push([`${2023 + t}`, 1/parseFloat(temperatureData.CRI) * 1/10  * t + parseInt(temperatureData.temperature)]);
+            newSoil.push([`${2023 + t}`, parseFloat(rainfallData.rate_of_change) * 0.7 * parseFloat(temperatureData.CRI)  * t + parseFloat(soilData.soil)])
         })
         console.log(newRainfall);
         console.log(newTemperature);
         console.log(newSoil);
 
-        function normalizeSecondElement(data) {
-            if (data.length === 0) return [];
+        // function normalizeSecondElement(data) {
+        //     if (data.length === 0) return [];
           
-            // Extract the second elements from the sub-arrays
-            const secondElements = data.map(item => item[1]);
+        //     // Extract the second elements from the sub-arrays
+        //     const secondElements = data.map(item => item[1]);
           
-            // Calculate min and max of the second elements
-            const min = Math.min(...secondElements);
-            const max = Math.max(...secondElements);
+        //     // Calculate min and max of the second elements
+        //     const min = Math.min(...secondElements);
+        //     const max = Math.max(...secondElements);
           
-            // Normalize the second elements and update the original data
-            return data.map(item => {
-              const normalizedValue = (item[1] - min) / (max - min);
-              return [item[0], normalizedValue];
-            });
-          }
+        //     // Normalize the second elements and update the original data
+        //     return data.map(item => {
+        //       const normalizedValue = (item[1] - min) / (max - min);
+        //       return [item[0], normalizedValue*10];
+        //     });
+        //   }
         
-        const normalized_soil_data = normalizeSecondElement(newSoil)
+        // const normalized_soil_data = normalizeSecondElement(newSoil)
 
-        console.log(normalized_soil_data)
+        // console.log(normalized_soil_data)
 
         const rainfall_data = [
             ["Time", "Rainfall"],
@@ -80,12 +80,12 @@ const MapChart = (props) => {
 
         const soil_data = [
             ["Time", "Soil"],
-            ...normalized_soil_data
+            ...newSoil
         ]
 
 
-        setRainfall(rainfall_data);
-        setTemperature(temperature_data);
+        props.setRainfall(rainfall_data);
+        props.setTemperature(temperature_data);
         props.setSoil(soil_data);
 
     }

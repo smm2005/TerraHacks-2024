@@ -14,6 +14,8 @@ import Solution from './components/pages/Solution';
 function App() {
   const [chosenCountry, setChosenCountry] = useState(null);
   const [soil, setSoil] = useState([])
+  const [rainfall, setRainfall] = useState([]);
+  const [temperature, setTemperature] = useState([]);
   return (
 
     <div className="App">
@@ -21,7 +23,7 @@ function App() {
         <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/model" element={<Model chosenCountry={chosenCountry} setChosenCountry={setChosenCountry} soil={soil} setSoil={setSoil}/>} />
+            <Route path="/model" element={<Model rainfall={rainfall} setRainfall={setRainfall} temperature={temperature} setTemperature={setTemperature} chosenCountry={chosenCountry} setChosenCountry={setChosenCountry} soil={soil} setSoil={setSoil}/>} />
             <Route path="/solution" element={<Solution chosenCountry={chosenCountry} soil={soil}/>} />
           </Routes>
         </BrowserRouter>
