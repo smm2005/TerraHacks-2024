@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const SLR = require('ml-regression').SLR;
 const MLR = require("ml-regression-multivariate-linear");
 
 const app = express();
@@ -19,20 +18,6 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(regions_routes);
-
-const features = [
-  [1, 2],
-  [2, 3],
-  [4, 5],
-  [3, 6],
-  [5, 8]
-];
-const target = [3, 5, 9, 8, 13];
-
-let inputs = [80, 60, 10, 20, 30];
-let outputs = [20, 40, 30, 50, 60];
-
-let regression = new SLR(inputs, outputs);
 
 const x = [
   [0, 1],
@@ -62,7 +47,7 @@ function functionString (model) {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
   console.log(`the result is ${coefficients}`);
-  console.log(`the result is ${functionString()}`);
+  console.log(`the result is ${functionString(mlr)}`);
   console.log(`the result is ${mlr.predict([4, 5])}`);
 });
 

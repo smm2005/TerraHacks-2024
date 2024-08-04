@@ -12,11 +12,50 @@ function functionString (model) {
     }
   }
 
-const predictFertility = (req, res) => {
-    const country = req.params.country;
+const getRainfall = (req, res) => {
+    const country  = req.query.country;
 
-    const query = "SELECT * FROM  WHERE country = ?";
-    database.query(query, [area], (err, results) => {
+    const query = `SELECT * FROM rainfall where Country = "${country}"`;
+    console.log(query);
+    database.query(query, (err, results) => {
+        if (err) throw err;
+        console.log(results);
+        if (results.length > 0){
+            res.status(200).send(results[0])
+        } else {
+            res.status(404).send({message: "No data found for the country" })
+        }
+        
+    })
+}
+
+const getTemperature = (req, res) => {
+    const  country  = req.query.country;
+    const query = `SELECT t.Country AS Country, t.Temperature as temperature, c.Normalize as CRI FROM temp AS t LEFT JOIN CRI_table AS c ON t.Country = c.Country WHERE t.Country = "${country}"`;
+    console.log(query);
+    database.query(query,  (err, results) => {
+        if (err) throw err;
+        console.log(results);
+        res.status(200).send(results[0]);
+    })
+}
+
+const getSoil = (req, res) => {
+    const country = req.query.country;
+    const query = `SELECT * FROM soil_table WHERE Country = "${country}"`;
+    console.log(query);
+    database.query(query, (err, results) => {
+        if (err) throw err;
+        console.log(results);
+        res.status(200).send(results[0])
+    })
+}
+
+const predictFertility = (req, res) => {
+    const country = req.query.country;
+
+    const query = "SELECT * FROM fertility WHERE country = ?";
+    database.query(query, [country], (err, results) => {
         if (err) throw err;
         
         const features = [];
@@ -37,7 +76,7 @@ const predictFertility = (req, res) => {
 }
 
 const getCountryData = (req, res) => {
-    const country = req.params.country;
+    const country = req.query.country;
     const query = "SELECT * FROM fertility WHERE country = ?";
     database.query(query, [country], (err, results) => {
         if (err) throw err;
@@ -47,5 +86,8 @@ const getCountryData = (req, res) => {
 
 module.exports = {
     predictFertility, 
-    getCountryData
+    getCountryData, 
+    getRainfall, 
+    getTemperature, 
+    getSoil
 }

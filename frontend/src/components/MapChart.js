@@ -6,44 +6,57 @@ import { Chart } from "react-google-charts";
 
 import worldMap from "@highcharts/map-collection/custom/world.geo.json";
 
-const MapChart = () => {
+const MapChart = (props) => {
     const [prediction, setPrediction] = useState(false);
     const [rainfall, setRainfall] = useState([]);
     const [temperature, setTemperature] = useState([]);
-    const time = [1, 2, 3, 4, 5]
-    const [chosenCountry, setChosenCountry] = useState();
+    const time = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const chosenCountry = props.chosenCountry;
     const chartRef = React.useRef(null);
 
-    const onClickEvent = (country) => {
+    const onClickEvent = async  (country) => {
         setPrediction(!prediction);
-        // const response = fetch("http://localhost:9897/country-data?country=${country}");
-        // const data = response.json();
-        // console.log(data);
-        const data = {country: "Japan", image: "japan.png", temperature: 20, temperature_rate: 1.234, temperature_intercept: 1, rainfall: 40, rainfall_rate: 3.143, rainfall_intercept: 1, soil_type: 2}
+        const rainfall_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/rainfall?country=${country}`);
+        const rainfallData = await rainfall_response.json();
 
-            const newrainfall = []
-            const newtemperature = []
+        const temperature_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/temperature?country=${country}`);
+        const temperatureData = await temperature_response.json();
 
-            time.forEach((t) => {
-                newrainfall.push([t, data.rainfall_rate * t + data.rainfall_intercept] );
-                newtemperature.push([t, data.temperature_rate * t + data.temperature_intercept]);
-            })
-            console.log(newrainfall);
+        const soil_response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/soil?country=${country}`);
+        const soilData = await soil_response.json();
 
-            const rainfall_data = [
-                ["Time", "Rainfall"],
-                ...newrainfall 
-            ];
+        console.log("rainfall data");
+        console.log(rainfallData);
+        console.log("temperature data");
+        console.log(temperatureData);
+        console.log("Soil Data: ");
+        console.log(soilData);
+
+        const newRainfall = []
+        const newTemperature = []
+        const newSoil = []
+
+        time.forEach((t) => {
+            newRainfall.push([2023 + t, parseInt(rainfallData.rate_of_change) * t + parseInt(rainfallData.Precipitation_Average)] );
+            newTemperature.push([2023 + t, parseInt(temperatureData.CRI) * t + parseInt(temperatureData.temperature)]);
+        })
+        console.log(newRainfall);
+        console.log(newTemperature);
+
+        const rainfall_data = [
+            ["Time", "Rainfall"],
+            ...newRainfall 
+        ];
 
 
-            const temperature_data = [
-                ["Time", "Temperature"], 
-                ...newtemperature
-            ]
+        const temperature_data = [
+            ["Time", "Temperature"], 
+            ...newTemperature
+        ]
 
 
-            setRainfall(rainfall_data);
-            setTemperature(temperature_data);
+        setRainfall(rainfall_data);
+        setTemperature(temperature_data);
 
     }
 
@@ -66,7 +79,7 @@ const MapChart = () => {
         events: {
             load: function () {
                 // Initialize chosenCountry state
-                setChosenCountry(null);
+                props.setChosenCountry(null);
             }
         },
         mapNavigation: {
@@ -313,8 +326,8 @@ const MapChart = () => {
                 point:{
                     events:{
                         click: function(){
-                            setChosenCountry(this.name);
-                            onClickEvent(this.name)
+                            props.setChosenCountry(this.name.toString());
+                            onClickEvent(this.name.toString())
                         }
                     }
                 }
@@ -347,24 +360,25 @@ const MapChart = () => {
                         ref={chartRef}
                     />
                 </div>
-
-                <div className="model-predict-container">
-                    <Chart
-                        chartType="LineChart"
-                        width="100%"
-                        height="100%"
-                        data={rainfall}
-                        options={option_rainfall}
-                        />
-                    <Chart
-                        chartType="LineChart"
-                        title="Predict Temperature"
-                        width="100%"
-                        height="100%"
-                        data={temperature}
-                        options={option_temperature}
-                        />
-                </div>
+                {chosenCountry && 
+                    <div className="model-predict-container">
+                        <Chart
+                            chartType="LineChart"
+                            width="100%"
+                            height="100%"
+                            data={rainfall}
+                            options={option_rainfall}
+                            />
+                        <Chart
+                            chartType="LineChart"
+                            title="Predict Temperature"
+                            width="100%"
+                            height="100%"
+                            data={temperature}
+                            options={option_temperature}
+                            />
+                    </div>
+                }
             </div>
         </div>
 

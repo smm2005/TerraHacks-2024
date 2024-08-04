@@ -4,10 +4,10 @@ const {default_user, default_password, default_database, default_host} = require
 require("dotenv").config();
 
 const database = mysql.createConnection({
-    user: process.env.DB_USER || default_user,
-    host: process.env.DB_HOST || default_password,
-    database: process.env.DB_NAME || default_database, 
-    password: process.env.DB_PASSWORD || default_host
+    user: process.env.MYSQLDB_USER || default_user,
+    host: process.env.MYSQLDB_HOST || default_host,
+    database: process.env.MYSQLDB_DATABASES || default_database, 
+    password: process.env.MYSQLDB_ROOT_PASSWORD || default_password
 })
 
 module.exports = database;
