@@ -15,18 +15,24 @@ function functionString (model) {
 const getRainfall = (req, res) => {
     const country  = req.query.country;
 
-    const query = `SELECT * FROM rainfall where Country = ${country}`;
+    const query = `SELECT * FROM rainfall where Country = "${country}"`;
+    console.log(query);
     database.query(query, (err, results) => {
         if (err) throw err;
         console.log(results);
-        res.status(200).send(results[0])
+        if (results.length > 0){
+            res.status(200).send(results[0])
+        } else {
+            res.status(404).send({message: "No data found for the country" })
+        }
+        
     })
 }
 
 const getTemperature = (req, res) => {
     const  country  = req.query.country;
-    console.log(country);
-    const query = `SELECT t.Country AS Country, t.Temperature as temperature, c.Normalize as CRI FROM temp AS t LEFT JOIN CRI_table AS c ON t.Country = c.Country WHERE t.Country = ${country}`;
+    const query = `SELECT t.Country AS Country, t.Temperature as temperature, c.Normalize as CRI FROM temp AS t LEFT JOIN CRI_table AS c ON t.Country = c.Country WHERE t.Country = "${country}"`;
+    console.log(query);
     database.query(query,  (err, results) => {
         if (err) throw err;
         console.log(results);
@@ -35,8 +41,9 @@ const getTemperature = (req, res) => {
 }
 
 const getSoil = (req, res) => {
-    const { country } = req.query.country;
-    const query = `SELECT * FROM soil_table WHERE Country = ${country}`;
+    const country = req.query.country;
+    const query = `SELECT * FROM soil_table WHERE Country = "${country}"`;
+    console.log(query);
     database.query(query, (err, results) => {
         if (err) throw err;
         console.log(results);
