@@ -44,30 +44,6 @@ const MapChart = (props) => {
                 newSoil.push([`${2023 + t}`, parseFloat(rainfallData.rate_of_change) * 0.7 * parseFloat(temperatureData.CRI)  * t + parseFloat(soilData.soil)])
             }
         })
-        console.log(newRainfall);
-        console.log(newTemperature);
-        console.log(newSoil);
-
-        // function normalizeSecondElement(data) {
-        //     if (data.length === 0) return [];
-          
-        //     // Extract the second elements from the sub-arrays
-        //     const secondElements = data.map(item => item[1]);
-          
-        //     // Calculate min and max of the second elements
-        //     const min = Math.min(...secondElements);
-        //     const max = Math.max(...secondElements);
-          
-        //     // Normalize the second elements and update the original data
-        //     return data.map(item => {
-        //       const normalizedValue = (item[1] - min) / (max - min);
-        //       return [item[0], normalizedValue*10];
-        //     });
-        //   }
-        
-        // const normalized_soil_data = normalizeSecondElement(newSoil)
-
-        // console.log(normalized_soil_data)
 
         const rainfall_data = [
             ["Time", "Rainfall"],
@@ -116,7 +92,6 @@ const MapChart = (props) => {
         },
         events: {
             load: function () {
-                // Initialize chosenCountry state
                 props.setChosenCountry(null);
             }
         },
