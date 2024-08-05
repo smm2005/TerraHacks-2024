@@ -100,7 +100,13 @@ Step 5: To stop the docker containers, remove all created images and volumes, na
 docker compose down --rmi all -v
 ```
 
+## DEVPOST
 
+If you want further information, you can checkout our devpost
+
+```
+https://devpost.com/software/fertility-prediction-model
+```
 
 <h2 align="center"> &nbsp;Some Tools We Have Used and Learned In This Project</h2>
 <p align="center">
