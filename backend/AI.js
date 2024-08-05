@@ -1,9 +1,8 @@
 const { HfInference } = require("@huggingface/inference");
 const dotenv = require("dotenv");
+const {HF_ACCESS_TOKEN} = require("./secret-data")
 
 dotenv.config();
-
-const HF_ACCESS_TOKEN = "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";
 
 const hf = new HfInference(HF_ACCESS_TOKEN);
 
